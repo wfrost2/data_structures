@@ -1,0 +1,6 @@
+C:\Users\wyatt\source\repos\DataStructuresGroupAssignment\data_structures\DataStructuresGroupAssignment\bin\Debug\DataStructuresGroupAssignment.exe.config
+C:\Users\wyatt\source\repos\DataStructuresGroupAssignment\data_structures\DataStructuresGroupAssignment\bin\Debug\DataStructuresGroupAssignment.exe
+C:\Users\wyatt\source\repos\DataStructuresGroupAssignment\data_structures\DataStructuresGroupAssignment\bin\Debug\DataStructuresGroupAssignment.pdb
+C:\Users\wyatt\source\repos\DataStructuresGroupAssignment\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.csproj.CoreCompileInputs.cache
+C:\Users\wyatt\source\repos\DataStructuresGroupAssignment\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.exe
+C:\Users\wyatt\source\repos\DataStructuresGroupAssignment\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.pdb
