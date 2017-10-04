@@ -17,7 +17,7 @@ namespace DataStructuresGroupAssignment
 
 
 
-            do
+            do //main menu
             {//do while 
                 Console.WriteLine("1. Stack");
                 Console.WriteLine("2. Queue");
@@ -26,11 +26,11 @@ namespace DataStructuresGroupAssignment
 
                 iDecision = Convert.ToInt32(Console.ReadLine());
 
-                switch (iDecision)
+                switch (iDecision) //determines which structure to use
                 {
                     case 1: //Logic for Stack
 
-                        //variables for stack options!
+                        //global variables for stack options!
                         int iMenu = 0;
                         int i;
                         string sEntry = "New Entry ";
@@ -48,15 +48,15 @@ namespace DataStructuresGroupAssignment
 
                             iMenu = Convert.ToInt32(Console.ReadLine());
 
-                            switch (iMenu)
+                            switch (iMenu) //determines which options to use
                             {
-                                case 1:
+                                case 1: //add item
                                     Console.WriteLine(); //blank line
                                     Console.Write("Enter one item into stack:");
                                     myStack.Push(Console.ReadLine());
 
                                     break;
-                                case 2:
+                                case 2: //adds huge list
 
                                     for (i = 0; myStack.Count > 0; i++)
                                     {
@@ -74,7 +74,7 @@ namespace DataStructuresGroupAssignment
                                     Console.WriteLine("List Created.");
 
                                     break;
-                                case 3:
+                                case 3: //diplays entire list
 
                                     Console.WriteLine(); //blank line
                                     foreach (string sDisplay in myStack)
@@ -83,22 +83,25 @@ namespace DataStructuresGroupAssignment
                                     }
 
                                     break;
-                                case 4:
+                                case 4: //deletes one item
 
-                                    string iDelete;
+                                    string sDelete;
+                                    Boolean bDelete = false; //to determine if deleted
                                     Console.WriteLine(); //blank line
                                     Console.WriteLine("Enter item you want to delete: ");
                                     Console.Write("New Entry #");
 
-                                    iDelete = sEntry + Convert.ToString(Console.ReadLine());
+                                    sDelete = sEntry + Convert.ToString(Console.ReadLine());
 
                                     while (myStack.Count > 0)
                                     {
 
                                         //Remove iDelete from the stack
-                                        if (myStack.Peek() == iDelete)
+                                        if (myStack.Peek() == sDelete)
                                         {
                                             myStack.Pop();
+                                            Console.WriteLine(sDelete + " Has been deleted"); //if deleted
+                                            bDelete = true;
                                         }
                                         else
                                         {
@@ -114,10 +117,17 @@ namespace DataStructuresGroupAssignment
                                         myStack.Push(myHoldStack.Pop());
                                     }
 
-                                    Console.WriteLine(iDelete + " Has been deleted");
+                                    if (bDelete == false) //if item not found
+                                    {
+                                        Console.WriteLine("NOTHING DELETED because item not found");
+                                    }
+                                    else
+                                    {
+                                        //nothing
+                                    }
 
                                     break;
-                                case 5:
+                                case 5: //clears stack
 
                                     Console.WriteLine();  //blank line
                                     //for loop clears all of stack
@@ -129,40 +139,51 @@ namespace DataStructuresGroupAssignment
                                     Console.WriteLine("List has been cleared.");
 
                                     break;
-                                case 6:
+                                case 6: //searches for one item
 
-                                    string iSearch;
+                                    string sSearch;
+                                    System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch(); //stopwatch!
                                     Console.WriteLine(); //blank line
-                                    Console.WriteLine("Enter item you want to Search for: ");
+                                    Console.WriteLine("Enter item you want to search for: ");
                                     Console.Write("New Entry #");
 
-                                    iSearch = sEntry + Convert.ToString(Console.ReadLine());
+                                    sSearch = sEntry + Convert.ToString(Console.ReadLine());
+                                    sw.Start(); //this starts the stopwatch
 
-                                    while (myStack.Count > 0)
+                                    Boolean bFound = false;
+
+
+                                    if (myStack.Contains(sSearch))
                                     {
-
-                                        //searches for entry
-                                        if (myStack.Peek() == iSearch)
-                                        {
-                                            Console.WriteLine(); //blank line
-                                            Console.WriteLine(myStack.Peek());
-                                        }
-                                        else
-                                        {
-                                            //if it is not iDelete then push it to a new stack
-                                            myHoldStack.Push(myStack.Pop());
-                                        }
+                                        Console.WriteLine(); //blank line
+                                        Console.WriteLine("FOUND: " + sSearch);
+                                        bFound = true;
+                                    }
+                                    else
+                                    {
+                                        //nothing
                                     }
 
+                                    if (bFound == false)
+                                    {
+                                        Console.WriteLine(); //blank line
+                                        Console.WriteLine("This item is not found in search");
+                                    }
+                                    else
+                                    {
+                                        //nothing
+                                    }
+                                    sw.Stop(); //this stops the stopwatch
+
+                                    TimeSpan ts = sw.Elapsed; //assigns the time elapsed
+                                    Console.WriteLine("Time elapsed in search: " + ts); //displays the stopwatch time
 
                                     break;
-                                case 7:
+                                case 7: //leaves stack and goes back to main menu
 
                                     //not sure if i need this case... the do while loop kicks me out when i choose 7
                                     break;
-
                             }
-
 
                         } while (iMenu != 7);
 
