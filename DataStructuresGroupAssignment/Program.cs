@@ -315,7 +315,7 @@ namespace DataStructuresGroupAssignment
                                 tempQueue1.Clear(); //clean up after yourself
                                 Console.WriteLine("");
                             }
-                            else
+                            else if(QResponse != 7)
                             {
                                 Console.WriteLine("Enter a number 1-7");
                             }
@@ -384,7 +384,7 @@ namespace DataStructuresGroupAssignment
                             else if (iChoice == 2)
                             {
                                 //Add huge list of items to dictionary
-                                int iLength = 2001;
+                                int iLength = 2000;
                                 Dictionary.Clear();
 
                                 //load up the list with values
@@ -414,10 +414,15 @@ namespace DataStructuresGroupAssignment
                                 {
                                     Console.WriteLine("What item would you like to clear from the dictionary?");
                                     sDelete = Console.ReadLine();
-                                    Dictionary.Remove(sDelete);
-                                    Console.WriteLine(sDelete + " was deleted from the dictionary");
-                                    b3 = true;
+                                    if(Dictionary.ContainsKey(sDelete)){
+                                        Dictionary.Remove(sDelete);
+                                        Console.WriteLine(sDelete + " was deleted from the dictionary");
+                                        b3 = true;
+                                    } else{
+                                        Console.WriteLine("That entry was not found in the dictionary");
+                                    }
                                 }
+                                
                                 catch (Exception delete)
                                 {
                                     Console.WriteLine("That entry was not found in the dictionary");
@@ -437,9 +442,15 @@ namespace DataStructuresGroupAssignment
                                 sSearch = Console.ReadLine();
                                 Console.WriteLine();
 
+                                System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch(); //create stopwatch object
+                                sw.Start(); //start the stopwatch
+
                                 if (Dictionary.ContainsKey(sSearch))
                                 {
+                                    sw.Stop(); //stop the stopwatch
+                                    
                                     Console.WriteLine("Name: " + sSearch + " Value: " + Dictionary[sSearch]); 
+                                    Console.WriteLine("\nYour search was found! It took " + sw.Elapsed + " milliseconds to find your result.\n");
                                 }
                                 else
                                 {
