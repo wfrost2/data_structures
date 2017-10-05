@@ -195,9 +195,172 @@ namespace DataStructuresGroupAssignment
                         break;
                     case 3:
                         //Logic for Dictionary
+                        int iChoice;
+                        Dictionary<string, int> Dictionary = new Dictionary<string, int>();
 
+                        //display dictionary menu
+                        do  
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Dictionary Menu");
+                            Console.WriteLine("---------------");
+                            Console.WriteLine("1. Add one item to Dictionary");
+                            Console.WriteLine("2. Add huge List of Items to Dictionary");
+                            Console.WriteLine("3. Display Dictionary");
+                            Console.WriteLine("4. Delete from Dictionary");
+                            Console.WriteLine("5. Clear Dictionary");
+                            Console.WriteLine("6. Search Dictionary");
+                            Console.WriteLine("7. Return to main menu");
+                            Console.WriteLine();
 
+                            iChoice = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine();
 
+                            if (iChoice == 1)
+                            {
+                                //Add one item to dictionary
+
+                                string sName;
+                                Boolean b = false;
+                                int iValue = 0;
+
+                                //ask for the name of the item
+                                Console.WriteLine("What is the name of the item you would like to add to the dictionary");
+
+                                sName = Console.ReadLine();
+                                Console.WriteLine();
+
+                                Console.WriteLine("What value is associated with this item? (Please enter a number)");
+
+                                while (b == false)
+                                {
+                                    try//to make sure a number is entered for the value
+                                    {
+                                        iValue = Convert.ToInt32(Console.ReadLine());
+                                        b = true;
+                                    }
+                                    catch (Exception e1)
+                                    {
+                                        Console.WriteLine("Please enter a valid #");
+                                    }
+
+                                }
+
+                                //Load item into dictionary
+                                Dictionary.Add(sName, iValue);
+                            }
+
+                            else if (iChoice == 2)
+                            {
+                                //Add huge list of items to dictionary
+                                List<string> lNames = new List<string>();
+                                List<int> lValues = new List<int>();
+                                int iLength = 0;
+                                Boolean b2 = false;
+
+                                while (b2 == false)
+                                {
+                                    try
+                                    {
+                                        Console.WriteLine("How many Items are in your list?");
+                                        iLength = Convert.ToInt32(Console.ReadLine());
+                                        Console.WriteLine();
+                                        b2 = true;
+                                    }
+                                    catch (Exception e2)
+                                    {
+                                        Console.WriteLine("Please enter in a valid number");
+                                        Console.WriteLine();
+                                    }
+
+                                }
+
+                                //load up the list with values
+                                for (int iCount = 0; iCount < iLength; iCount++)
+                                {
+                                    Console.WriteLine("What is the name of item " + (iCount + 1) + "?");
+                                    lNames.Add(Console.ReadLine());
+                                    Console.WriteLine();
+                                    b2 = true;
+
+                                    while (b2 == true)
+                                        try
+                                        {
+                                            Console.WriteLine("What is the value of item " + (iCount + 1) + "?");
+                                            lValues.Add(Convert.ToInt32(Console.ReadLine()));
+                                            Console.WriteLine();
+                                            b2 = false;
+                                        }
+                                        catch (Exception e3)
+                                        {
+                                            Console.WriteLine("Please enter in a valid number YOU IDIOT");
+                                            Console.WriteLine();
+                                        }
+
+                                    //add list value to dictionary
+                                    Dictionary.Add(lNames[iCount], lValues[iCount]);
+                                }
+
+                            }
+                            else if (iChoice == 3)
+                            {
+                                //display dictionary
+                                Console.WriteLine("Name\t\tValue");
+                                Console.WriteLine("----\t\t-----");
+                                foreach (KeyValuePair<string, int> kvp in Dictionary)
+                                {
+                                    Console.WriteLine(kvp.Key + "\t\t" + kvp.Value);
+                                }
+                            }
+                            else if (iChoice == 4)
+                            {
+                                //delete from dictionary
+                                string sDelete;
+                                Boolean b3 = false;
+
+                                try
+                                {
+                                    Console.WriteLine("What item would you like to clear from the dictionary?");
+                                    sDelete = Console.ReadLine();
+                                    Dictionary.Remove(sDelete);
+                                    Console.WriteLine(sDelete + " was deleted from the dictionary");
+                                    b3 = true;
+                                }
+                                catch (Exception delete)
+                                {
+                                    Console.WriteLine("That entry was not found in the dictionary");
+                                }
+                            }
+
+                            else if (iChoice == 5)
+                            {
+                                //clear dictionary
+                                Dictionary.Clear();
+                                Console.WriteLine("The dictionary has been cleared");
+                            }
+                            else if (iChoice == 6)
+                            { //search dictionary
+                                string sSearch;
+                                Console.WriteLine("What is the name of the item that you would like to search for?");
+                                sSearch = Console.ReadLine();
+                                Console.WriteLine();
+
+                                if (Dictionary.ContainsKey(sSearch))
+                                {
+                                    Console.WriteLine("Name: " + sSearch + " Value: " + Dictionary[sSearch]); 
+                                }
+                                else
+                                {
+                                    Console.WriteLine(sSearch + " was not found in dictionary");
+                                }
+                                    
+                            }
+                            else
+                            {
+                                Console.WriteLine("please enter in a number from the menu");
+                            }
+                        } while (iChoice != 7);
+                        
                         break;
                 }
 
