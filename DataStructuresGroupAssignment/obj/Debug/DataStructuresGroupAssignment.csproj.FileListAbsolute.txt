@@ -15,3 +15,6 @@ C:\Users\connerludlow\source\repos\data_structures\DataStructuresGroupAssignment
 C:\Users\connerludlow\source\repos\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.csproj.CoreCompileInputs.cache
 C:\Users\connerludlow\source\repos\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.exe
 C:\Users\connerludlow\source\repos\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.pdb
+C:\Users\jorda\Documents\Visual Studio 2017\Projects\DataStructuresQueue\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.csprojResolveAssemblyReference.cache
+C:\Users\jorda\Documents\Visual Studio 2017\Projects\DataStructuresQueue\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.exe
+C:\Users\jorda\Documents\Visual Studio 2017\Projects\DataStructuresQueue\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.pdb
