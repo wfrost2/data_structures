@@ -11,3 +11,7 @@ C:\Users\Nathan\source\repos\data_structures-master\data_structures\DataStructur
 C:\Users\Nathan\source\repos\data_structures-master\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.csproj.CoreCompileInputs.cache
 C:\Users\Nathan\source\repos\data_structures-master\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.exe
 C:\Users\Nathan\source\repos\data_structures-master\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.pdb
+C:\Users\connerludlow\source\repos\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.csprojResolveAssemblyReference.cache
+C:\Users\connerludlow\source\repos\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.csproj.CoreCompileInputs.cache
+C:\Users\connerludlow\source\repos\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.exe
+C:\Users\connerludlow\source\repos\data_structures\DataStructuresGroupAssignment\obj\Debug\DataStructuresGroupAssignment.pdb

@@ -193,6 +193,7 @@ namespace DataStructuresGroupAssignment
 
 
                         break;
+
                     case 3:
                         //Logic for Dictionary
                         int iChoice;
@@ -253,52 +254,13 @@ namespace DataStructuresGroupAssignment
                             else if (iChoice == 2)
                             {
                                 //Add huge list of items to dictionary
-                                List<string> lNames = new List<string>();
-                                List<int> lValues = new List<int>();
-                                int iLength = 0;
-                                Boolean b2 = false;
-
-                                while (b2 == false)
-                                {
-                                    try
-                                    {
-                                        Console.WriteLine("How many Items are in your list?");
-                                        iLength = Convert.ToInt32(Console.ReadLine());
-                                        Console.WriteLine();
-                                        b2 = true;
-                                    }
-                                    catch (Exception e2)
-                                    {
-                                        Console.WriteLine("Please enter in a valid number");
-                                        Console.WriteLine();
-                                    }
-
-                                }
+                                int iLength = 2001;
+                                Dictionary.Clear;
 
                                 //load up the list with values
                                 for (int iCount = 0; iCount < iLength; iCount++)
                                 {
-                                    Console.WriteLine("What is the name of item " + (iCount + 1) + "?");
-                                    lNames.Add(Console.ReadLine());
-                                    Console.WriteLine();
-                                    b2 = true;
-
-                                    while (b2 == true)
-                                        try
-                                        {
-                                            Console.WriteLine("What is the value of item " + (iCount + 1) + "?");
-                                            lValues.Add(Convert.ToInt32(Console.ReadLine()));
-                                            Console.WriteLine();
-                                            b2 = false;
-                                        }
-                                        catch (Exception e3)
-                                        {
-                                            Console.WriteLine("Please enter in a valid number YOU IDIOT");
-                                            Console.WriteLine();
-                                        }
-
-                                    //add list value to dictionary
-                                    Dictionary.Add(lNames[iCount], lValues[iCount]);
+                                    Dictionary.Add("New Entry " + (iCount+1), (iCount +1));
                                 }
 
                             }
