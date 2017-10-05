@@ -189,7 +189,137 @@ namespace DataStructuresGroupAssignment
 
                         break;
                     case 2:
-                        //Logic for Queue
+
+                        Queue<string> userQueue = new Queue<string>();  //Create data structure: queue for this option
+                        int QResponse = 0;
+
+                        while (QResponse != 7)
+                        {
+                            Console.WriteLine("\nChoose a number:\n" +        //Menu for queue option
+                                "1. Add one time to Queue\n" +
+                                "2. Add Huge List of Items to Queue\n" +
+                                "3. Display Queue\n" +
+                                "4. Delete from Queue\n" +
+                                "5. Clear Queue\n" +
+                                "6. Search Queue\n" +
+                                "7. Return to Main Menu");
+
+                            int.TryParse(Console.ReadLine(), out QResponse);  //read users response 
+
+                            if (QResponse == 1)
+                            {
+                                Console.WriteLine("\nGo ahead and add something to the queue!");
+                                userQueue.Enqueue(Console.ReadLine());  //add their input to the queue
+                                Console.WriteLine("");
+                            }
+                            else if (QResponse == 2)
+                            {
+                                userQueue.Clear(); //clear the queue
+
+                                for (int iCount = 0; iCount < 2000; iCount++) //add entries up to 2000
+                                {
+                                    userQueue.Enqueue("New Entry " + (iCount + 1));
+                                }
+                                Console.WriteLine("List Created.\n");
+                            }
+                            else if (QResponse == 3)
+                            {
+                                Console.WriteLine("");
+                                foreach (string entry in userQueue) //use for each to display every entry
+                                {
+                                    Console.WriteLine(entry);
+                                }
+                                Console.WriteLine("");
+                            }
+                            else if (QResponse == 4)
+                            {
+                                int QSize = userQueue.Count; //get initial size of queue
+
+                                Console.WriteLine("\nThere are " + userQueue.Count + " things in the queue. Which one do you want to delete?");
+                                int userDeleteOption = (int.Parse(Console.ReadLine()) - 1); //user puts in one they want to delete
+
+                                int iCount;
+                                Queue<string> tempQueue = new Queue<string>();  //create a temporary queue
+                                for (iCount = 0; iCount < userDeleteOption; iCount++) //for the first part of queue (up to the index they want to delete)
+                                {
+                                    tempQueue.Enqueue(userQueue.Dequeue()); //take the first element and put it in the temporary queue
+                                }
+
+                                userQueue.Dequeue(); //throw away the one they selected
+
+                                for (iCount = (userDeleteOption + 1); iCount < QSize; iCount++) //for the last part of the queue
+                                {
+                                    tempQueue.Enqueue(userQueue.Dequeue()); //take the element and put it in the temporary queue
+                                }
+
+
+                                userQueue.Clear(); //clear the first queue
+                                for (int iCount1 = 0; iCount1 < (QSize - 1); iCount1++)
+                                {
+                                    userQueue.Enqueue(tempQueue.Dequeue()); //put everything in the temp queue back in the main queue
+                                }
+                                tempQueue.Clear(); //clean up after yourself
+                                Console.WriteLine("");
+                            }
+                            else if (QResponse == 5)
+                            {
+                                userQueue.Clear(); //clear out the whole queue
+                                Console.WriteLine("\nThe queue has been cleared out.\n");
+                            }
+                            else if (QResponse == 6)
+                            {
+                                int QLength = userQueue.Count;
+
+                                Console.WriteLine("\nWhat would you like to search for in the queue?");
+                                string userSearch = Console.ReadLine();
+
+                                System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch(); //create stopwatch object
+                                sw.Start(); //start the stopwatch
+
+                                Queue<string> tempQueue1 = new Queue<string>(); //create a temporary queue
+                                bool foundIt = false;
+                                bool completeSearch = false;
+
+                                for (int iCount = 0; iCount < (QLength - 1); iCount++)
+                                {
+                                    if (completeSearch == false)
+                                    {
+                                        foundIt = userSearch.Equals(userQueue.Peek(), StringComparison.InvariantCultureIgnoreCase); //boolean if we found the string
+
+
+                                        if (foundIt == true)
+                                        {
+                                            sw.Stop(); //stop the stopwatch
+                                            Console.WriteLine("\nYour search was found! It took " + sw.Elapsed + " milliseconds to find your result.\n");
+                                            for (int iCount1 = iCount; iCount1 < (userQueue.Count - 1); iCount1++) //finish clearing the queue into the temporary queue
+                                            {
+                                                tempQueue1.Enqueue(userQueue.Dequeue()); //take the element and put it in the temporary queue
+                                                iCount = iCount1; //match those up, so you can get out of the big for loop
+                                            }
+                                            completeSearch = true;
+                                        }
+                                    }
+
+                                    tempQueue1.Enqueue(userQueue.Dequeue()); //take the element and put it in the temporary queue
+                                }
+                                if (foundIt == false)
+                                {
+                                    Console.WriteLine("\nYour search was not found.\n");
+                                }
+
+                                userQueue.Clear(); //clear the first queue
+                                for (int iCount1 = 0; iCount1 < (QLength - 1); iCount1++)
+                                {
+                                    userQueue.Enqueue(tempQueue1.Dequeue()); //put everything in the temp queue back in the main queue
+                                }
+                                tempQueue1.Clear(); //clean up after yourself
+                                Console.WriteLine("");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Enter a number 1-7");
+                            }
+                        }
 
 
                         break;
@@ -255,7 +385,7 @@ namespace DataStructuresGroupAssignment
                             {
                                 //Add huge list of items to dictionary
                                 int iLength = 2001;
-                                Dictionary.Clear;
+                                Dictionary.Clear();
 
                                 //load up the list with values
                                 for (int iCount = 0; iCount < iLength; iCount++)
